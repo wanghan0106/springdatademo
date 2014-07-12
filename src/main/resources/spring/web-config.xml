@@ -39,7 +39,12 @@
 
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+		
+	<interceptors>
+	    <beans:bean class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor" />
+	</interceptors>
 	
 	<task:annotation-driven />
-
+	
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 </beans:beans>
