@@ -15,7 +15,7 @@ public class TestPersonService extends BaseTestCase {
 	@Autowired
 	private PersonService personService;
 	
-	//@Test
+	@Test
 	public void testSave() {
 		Person person = new Person();
 		person.setName("roy");

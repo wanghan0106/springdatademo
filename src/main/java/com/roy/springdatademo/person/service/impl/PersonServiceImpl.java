@@ -1,5 +1,6 @@
 package com.roy.springdatademo.person.service.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -26,6 +27,11 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public List<Person> findAll() {
 		return personRepository.findAll();
+	}
+	
+	@Override
+	public Person getOne(Long id) {
+		return personRepository.getOne(id);
 	}
 
 	@Override
