@@ -1,15 +1,16 @@
 package com.roy.springdatademo.json;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig.Feature;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module.Feature;
 
-import com.fasterxml.jackson.module.hibernate.HibernateModule;
 
 public class HibernateAwareObjectMapper extends ObjectMapper {
-	public HibernateAwareObjectMapper() {  
-        HibernateModule hm = new HibernateModule();
-        registerModule(hm);
-        configure(Feature.FAIL_ON_EMPTY_BEANS, false);
-    } 
+	
+	public HibernateAwareObjectMapper() {
+		this.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        registerModule(new Hibernate4Module().configure(Feature.FORCE_LAZY_LOADING, true));
+    }
 
 }

@@ -14,9 +14,15 @@
 
 	<annotation-driven conversion-service="conversion-service">
 		<message-converters>
-		    <beans:bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		    <beans:bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		        <beans:property name="objectMapper">
-		            <beans:bean class="com.roy.springdatademo.json.HibernateAwareObjectMapper" />
+		            <beans:bean class="com.roy.springdatademo.json.HibernateAwareObjectMapper" >
+			            <beans:property name="dateFormat">
+			                <beans:bean class="java.text.SimpleDateFormat">
+			                    <beans:constructor-arg type="java.lang.String" value="yyyy-MM-dd"></beans:constructor-arg>
+			                </beans:bean>
+		            	</beans:property>
+	            	</beans:bean>
 		        </beans:property>
 		    </beans:bean>
 		</message-converters>
