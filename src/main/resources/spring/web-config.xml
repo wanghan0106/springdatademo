@@ -35,7 +35,7 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<view-controller path="/" view-name="forward:/hello" />
+	<view-controller path="/" view-name="forward:/index" />
 
 	<resources mapping="/themes/**" location="/themes/" />
 	<resources mapping="/scripts/**" location="/scripts/" />

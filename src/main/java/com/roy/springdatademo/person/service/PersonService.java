@@ -12,7 +12,7 @@ public interface PersonService {
 	
 	public Person getOne(Long id);
 	
-	public void delete(Person person);
+	public Person delete(Long id);
 	
 	public List<Person> findByName(String name);
 	

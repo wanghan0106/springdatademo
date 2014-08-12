@@ -57,7 +57,7 @@ public class TestPersonService extends BaseTestCase {
 	public void testDelete() {
 		List<Person> personList = personService.findAll();
 		for(Person person : personList) {
-			personService.delete(person);
+			personService.delete(person.getId());
 		}
 	}
 	
